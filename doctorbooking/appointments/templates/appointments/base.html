@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Doctor Booking{% endblock %}</title>
+    <style>
+        nav { background: #eee; padding: 1rem; }
+        .messages { color: green; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'doctor-list' %}">Doctors</a>
+    </nav>
+    
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

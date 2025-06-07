@@ -1,0 +1,33 @@
+{% extends "appointments/base.html" %}
+
+{% block title %}Our Doctors{% endblock %}
+
+{% block content %}
+<h1>Our Doctors</h1>
+<ul>
+    {% for doctor in doctors %}
+    <li>
+        <h3>{{ doctor.name }}</h3>
+        <p>{{ doctor.specialization }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+<!-- appointments/templates/appointments/doctor_list.html -->
+{% extends "appointments/base.html" %}
+
+{% block title %}Our Doctors{% endblock %}
+
+{% block content %}
+<h1>Our Medical Specialists</h1>
+<div class="doctor-grid">
+    {% for doctor in doctors %}
+    <div class="doctor-card">
+        <h3>{{ doctor.name }}</h3>
+        <p class="specialty">{{ doctor.specialization }}</p>
+        <p>{{ doctor.bio|truncatechars:100 }}</p>
+        <a href="#" class="btn">Book Appointment</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
